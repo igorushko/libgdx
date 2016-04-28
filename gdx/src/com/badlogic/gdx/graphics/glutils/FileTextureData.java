@@ -58,9 +58,9 @@ public class FileTextureData implements TextureData {
 	public void prepare () {
 		if (isPrepared) throw new GdxRuntimeException("Already prepared");
 		if (pixmap == null) {
-			if (file.extension().equals("cim"))
-				pixmap = PixmapIO.readCIM(file);
-			else
+			//if (file.extension().equals("cim"))
+				//pixmap = PixmapIO.readCIM(file);
+			//else
 				pixmap = ensurePot(new Pixmap(file));
 			width = pixmap.getWidth();
 			height = pixmap.getHeight();

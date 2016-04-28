@@ -324,7 +324,7 @@ public class BitmapFontWriter {
 			pageRefs[i] = ref;
 
 			// write the PNG in that directory
-			PixmapIO.writePNG(outputDir.child(ref), pages[i]);
+			//PixmapIO.writePNG(outputDir.child(ref), pages[i]);
 		}
 		return pageRefs;
 	}

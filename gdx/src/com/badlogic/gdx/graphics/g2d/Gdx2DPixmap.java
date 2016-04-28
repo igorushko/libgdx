@@ -272,7 +272,8 @@ public class Gdx2DPixmap implements Disposable {
 	#include <stdlib.h>
 	 */
 
-	private static native ByteBuffer load (long[] nativeData, byte[] buffer, int offset, int len); /*MANUAL
+	private static native ByteBuffer load (long[] nativeData, byte[] buffer, int offset, int len);
+	/*MANUAL
 		const unsigned char* p_buffer = (const unsigned char*)env->GetPrimitiveArrayCritical(buffer, 0);
 		gdx2d_pixmap* pixmap = gdx2d_load(p_buffer + offset, len);
 		env->ReleasePrimitiveArrayCritical(buffer, (char*)p_buffer, 0);
@@ -291,7 +292,8 @@ public class Gdx2DPixmap implements Disposable {
 		return pixel_buffer;
 	 */
 
-	private static native ByteBuffer newPixmap (long[] nativeData, int width, int height, int format); /*MANUAL
+	private static native ByteBuffer newPixmap (long[] nativeData, int width, int height, int format);
+	/*MANUAL
 		gdx2d_pixmap* pixmap = gdx2d_new(width, height, format);
 		if(pixmap==0)
 			return 0;
@@ -307,19 +309,23 @@ public class Gdx2DPixmap implements Disposable {
 		return pixel_buffer;
 	 */
 
-	private static native void free (long pixmap); /*
+	private static native void free (long pixmap);
+	/*
 		gdx2d_free((gdx2d_pixmap*)pixmap);
 	 */
 
-	private static native void clear (long pixmap, int color); /*
+	private static native void clear (long pixmap, int color);
+	/*
 		gdx2d_clear((gdx2d_pixmap*)pixmap, color);
 	 */
 
-	private static native void setPixel (long pixmap, int x, int y, int color); /*
+	private static native void setPixel (long pixmap, int x, int y, int color);
+	/*
 		gdx2d_set_pixel((gdx2d_pixmap*)pixmap, x, y, color);
 	 */
 
-	private static native int getPixel (long pixmap, int x, int y); /*
+	private static native int getPixel (long pixmap, int x, int y);
+	/*
 		return gdx2d_get_pixel((gdx2d_pixmap*)pixmap, x, y);
 	 */
 

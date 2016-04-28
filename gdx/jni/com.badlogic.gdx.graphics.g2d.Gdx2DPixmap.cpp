@@ -2,7 +2,7 @@
 
 //@line:270
 
-	#include <gdx2d/gdx2d.h>
+	#include "gdx2d/gdx2d.h"
 	#include <stdlib.h>
 	 JNIEXPORT jobject JNICALL Java_com_badlogic_gdx_graphics_g2d_Gdx2DPixmap_load(JNIEnv* env, jclass clazz, jlongArray nativeData, jbyteArray buffer, jint offset, jint len) {
 

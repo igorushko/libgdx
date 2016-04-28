@@ -5,7 +5,7 @@ import java.io.Writer;
 
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.PixmapIO;
-import com.badlogic.gdx.graphics.PixmapIO.PNG;
+//import com.badlogic.gdx.graphics.PixmapIO.PNG;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.PixmapPacker.Page;
 import com.badlogic.gdx.math.Rectangle;
@@ -64,12 +64,13 @@ public class PixmapPackerIO {
 			if (page.rects.size > 0) {
 				FileHandle pageFile = file.sibling(file.nameWithoutExtension() + "_" + (++index) + parameters.format.getExtension());
 				switch (parameters.format) {
-					case CIM:{
-						PixmapIO.writeCIM(pageFile, page.image);
-						break;
-					}
+//					case CIM:{
+//						PixmapIO.writeCIM(pageFile, page.image);
+//						break;
+//					}
 					case PNG: {
-						PixmapIO.writePNG(pageFile, page.image);
+						//Not supported;
+						//PixmapIO.writePNG(pageFile, page.image);
 						break;
 					}
 				}
