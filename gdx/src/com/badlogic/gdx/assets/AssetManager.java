@@ -291,7 +291,7 @@ public class AssetManager implements Disposable {
 		AssetLoader result = null;
 		int l = -1;
 		for (ObjectMap.Entry<String, AssetLoader> entry : loaders.entries()) {
-			if (entry.key.length() > l && fileName.endsWith(entry.key)) {
+			if (entry.key.length() > l && (entry.key.equals("") || fileName.endsWith(entry.key))) {
 				result = entry.value;
 				l = entry.key.length();
 			}

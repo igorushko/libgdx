@@ -10,7 +10,9 @@
 
 		const unsigned char* p_buffer = (const unsigned char*)env->GetPrimitiveArrayCritical(buffer, 0);
 		gdx2d_pixmap* pixmap = gdx2d_load(p_buffer + offset, len);
+		//env->SetByteArrayRegion(buffer, offset, len, p_buffer);
 		env->ReleasePrimitiveArrayCritical(buffer, (char*)p_buffer, 0);
+        //free(p_buffer);
 
 		if(pixmap==0)
 			return 0;
@@ -18,11 +20,13 @@
 		jobject pixel_buffer = env->NewDirectByteBuffer((void*)pixmap->pixels, pixmap->width * pixmap->height * gdx2d_bytes_per_pixel(pixmap->format));
 		jlong* p_native_data = (jlong*)env->GetPrimitiveArrayCritical(nativeData, 0);
 		p_native_data[0] = (jlong)pixmap;
-		p_native_data[1] = pixmap->width;
-		p_native_data[2] = pixmap->height;
-		p_native_data[3] = pixmap->format;
-		env->ReleasePrimitiveArrayCritical(nativeData, p_native_data, 0);
+		p_native_data[1] = (jlong)pixmap->width;
+		p_native_data[2] = (jlong)pixmap->height;
+		p_native_data[3] = (jlong)pixmap->format;
+		//env->ReleasePrimitiveArrayCritical(nativeData, p_native_data, 0);
 
+        env->SetLongArrayRegion(nativeData, 0, 4, p_native_data);
+        free(p_native_data);
 		return pixel_buffer;
 	 
 }
